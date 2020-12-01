@@ -7,14 +7,14 @@ import application.action.Action;
 import application.action.ActionList;
 import banque.AgenceBancaire;
 
-public class ActionListAgenceBancaire implements ActionList{
+public class ActionListAgenceBancaire<E> implements ActionList<E>{
 
 	private String message;
 	private String code;
 	private String title;
-	private ArrayList<Action> listeActions;
+	private ArrayList<Action<AgenceBancaire>> listeActions;
 	
-	public ActionListAgenceBancaire(String message,String title, ArrayList<Action> listeActions) {
+	public ActionListAgenceBancaire(String message,String title, ArrayList<Action<AgenceBancaire>> listeActions) {
 		this.message = message;
 		this.code = "0";
 		this.title = title;
@@ -32,10 +32,11 @@ public class ActionListAgenceBancaire implements ActionList{
 	}
 
 	@Override
-	public void execute(AgenceBancaire ag) throws Exception {
+	public void execute(E e) throws Exception {
+		
 		while(code != "-1") {
 			System.out.println("--");
-			System.out.println("Agence "+ag.getNomAgence()+" de "+ag.getLocAgence());
+			System.out.println("Agence "+((AgenceBancaire) e).getNomAgence()+" de "+((AgenceBancaire) e).getLocAgence());
 			System.out.println("Menu "+listTitle());
 			System.out.println("--");
 			System.out.println("\n  Choisir :");
@@ -51,7 +52,7 @@ public class ActionListAgenceBancaire implements ActionList{
 			int rep = scan.nextInt();
 			
 			if(rep != 0) {
-				listeActions.get(rep-1).execute(ag);
+				listeActions.get(rep-1).execute((AgenceBancaire) e);
 				
 			}else {
 				code = "-1";

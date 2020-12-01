@@ -14,14 +14,14 @@ public class ApplicationAgenceBancaire {
 
 	public static void main(String argv[]) {
 		AgenceBancaire ab = new AgenceBancaire("Caisse ecureuil", "Pibrac");
-		Action a1 = new ActionListeDesComptes("Afficher les comptes de l'agence");
-		Action a2 = new ActionVoirCompteNumero("Afficher le compte (par son numéro)");
+		Action<AgenceBancaire> a1 = new ActionListeDesComptes<AgenceBancaire>("Afficher les comptes de l'agence");
+		Action<AgenceBancaire> a2 = new ActionVoirCompteNumero<AgenceBancaire>("Afficher le compte (par son numéro)");
 		
-		Action a3 = new ActionListeDesComptes("Afficher les comptes de l'agence v2");
-		Action a4 = new ActionVoirCompteNumero("Afficher le compte (par son numéro) v2");
+		Action<AgenceBancaire> a3 = new ActionListeDesComptes<AgenceBancaire>("Afficher les comptes de l'agence v2");
+		Action<AgenceBancaire> a4 = new ActionVoirCompteNumero<AgenceBancaire>("Afficher le compte (par son numéro) v2");
 		
-		ArrayList<Action> liste1 = new ArrayList<>();
-		ArrayList<Action> liste2 = new ArrayList<>();
+		ArrayList<Action<AgenceBancaire>> liste1 = new ArrayList<>();
+		ArrayList<Action<AgenceBancaire>> liste2 = new ArrayList<>();
 		
 		liste1.add(a1);
 		liste1.add(a2);
@@ -29,11 +29,11 @@ public class ApplicationAgenceBancaire {
 		liste2.add(a3);
 		liste2.add(a4);
 		
-		Action a12 = new ActionListAgenceBancaire("Afficher menu v2", "V2", liste2);
+		Action<AgenceBancaire> a12 = new ActionListAgenceBancaire<AgenceBancaire>("Afficher menu v2", "V2", liste2);
 		liste1.add(a12);
 
 		
-		ActionList al = new ActionListAgenceBancaire("Menu principal","Général", liste1);
+		ActionList<AgenceBancaire> al = new ActionListAgenceBancaire<AgenceBancaire>("Menu principal","Général", liste1);
 		try {
 			
 			al.execute(ab);

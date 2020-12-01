@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import banque.AgenceBancaire;
 
-public class ActionVoirCompteNumero implements Action {
+public class ActionVoirCompteNumero<E> implements Action<E> {
 
 	private String message;
 	private String code;
@@ -25,12 +25,12 @@ public class ActionVoirCompteNumero implements Action {
 	}
 
 	@Override
-	public void execute(AgenceBancaire ag) throws Exception {
+	public void execute(E e) throws Exception {
 		System.out.println("Saisir numéro du compte:");
 		Scanner scan = new Scanner(System.in);
 		String num = scan.nextLine();
 		System.out.println("Affichage du compte:\n");
-		System.out.println(ag.getCompte(num)+"\n");
+		System.out.println(((AgenceBancaire) e).getCompte(num)+"\n");
 		
 		
 	}

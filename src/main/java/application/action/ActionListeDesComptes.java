@@ -2,7 +2,7 @@ package application.action;
 
 import banque.AgenceBancaire;
 
-public class ActionListeDesComptes implements Action{
+public class ActionListeDesComptes<E> implements Action<E>{
 
 	private String message;
 	private String code;
@@ -23,8 +23,8 @@ public class ActionListeDesComptes implements Action{
 	}
 
 	@Override
-	public void execute(AgenceBancaire ag) throws Exception {
-		ag.afficher();
+	public void execute(E e) throws Exception {
+		((AgenceBancaire) e).afficher();
 	}
 
 }
