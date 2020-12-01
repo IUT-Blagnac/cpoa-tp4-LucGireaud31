@@ -52,7 +52,7 @@ public class ActionListAgenceBancaire<E> implements ActionList<E>{
 			int rep = scan.nextInt();
 			
 			if(rep != 0) {
-				listeActions.get(rep-1).execute((AgenceBancaire) e);
+				listeActions.get(rep-1).execute((AgenceBancaire)e);
 				
 			}else {
 				code = "-1";
