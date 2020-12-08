@@ -13,7 +13,7 @@ public interface Action <E> {
 	 *
 	 * @return the message of the action
 	 */
-	public String actionMessage ();
+	public String actionMessage();
 
 	/**
 	 * Le code permet de savoir si on réaffiche u menu ou si on retourne dans l'ancien menu
@@ -22,7 +22,7 @@ public interface Action <E> {
 	 *
 	 * @return le code de cette action
 	 */
-	public String actionCode ();
+	public String actionCode();
 
 	/**
 	 * The method to call in order to "execute" the action on <code>e</code>.

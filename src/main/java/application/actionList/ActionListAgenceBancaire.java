@@ -86,4 +86,8 @@ public class ActionListAgenceBancaire<E> implements ActionList<E>{
 		return true;
 	}
 
+	public ArrayList<Action<AgenceBancaire>> getListeActions() {
+		return listeActions;
+	}
+
 }
